@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "blog-theme"
-  spec.version       = "0.0.3"
+  spec.version       = "0.0.4"
   spec.authors       = ["Marcus Felling"]
   spec.summary       = "Jekyll theme for personal blog"
   spec.homepage      = "https://marcusfelling.github.io/blog-theme/"

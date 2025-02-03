@@ -23,9 +23,9 @@
         </span>
       {% endif %}
 
-      {% if site.edit_page_button and site.github.repository_url %}
+      {% if site.view_page_button and site.github.repository_url %}
         &nbsp;&bull;&nbsp;
-        <a title="Edit this page on GitHub" href="{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}/{{ page.path }}" class="text_muted">Edit page</a>
+        <a title="View source on GitHub" href="{{ site.github.repository_url }}/blob/main/{{ page.path }}" class="text_muted">View source on GitHub</a>
        {% endif%}
       </div>
     </div>
