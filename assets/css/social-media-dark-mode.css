@@ -1,0 +1,22 @@
+/* Show circle backgrounds only in light mode */
+@media (prefers-color-scheme: light) {
+  .dynamic-bg-circle {
+    display: block;
+  }
+}
+
+/* Hide circle backgrounds in dark mode */
+@media (prefers-color-scheme: dark) {
+  .dynamic-bg-circle {
+    display: none;
+  }
+}
+
+/* For sites with manual theme toggling, add these classes to your theme toggle CSS */
+body.light-mode .dynamic-bg-circle {
+  display: block;
+}
+
+body.dark-mode .dynamic-bg-circle {
+  display: none;
+}
