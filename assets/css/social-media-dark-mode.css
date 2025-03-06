@@ -13,10 +13,10 @@
 }
 
 /* For sites with manual theme toggling, add these classes to your theme toggle CSS */
-body.light-mode .dynamic-bg-circle {
+body.light-theme .dynamic-bg-circle {
   display: block;
 }
 
-body.dark-mode .dynamic-bg-circle {
+body.dark-theme .dynamic-bg-circle {
   display: none;
 }
