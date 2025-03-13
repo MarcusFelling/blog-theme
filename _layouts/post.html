@@ -49,8 +49,8 @@ layout: base
       {% if page.tags.size > 0 %}
         <div class="blog-tags">
           <span>Tags:</span>
-          {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+            {% for tag in page.tags %}
+            <a href="{{ '/archives' | relative_url }}#{{- tag | downcase | replace: ' ', '-' -}}">{{- tag -}}</a>
           {% endfor %}
         </div>
       {% endif %}
