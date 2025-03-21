@@ -1,5 +1,5 @@
 <footer>
-  <div class="container-md blog-theme-footer">
+  <div class="container-md blog-theme-footer text-center">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
       {% include social-networks-links.html %}
@@ -10,23 +10,25 @@
           {% endfor %}
         </div>
       {% endif %}
-      {% if site.author %}
-        {{ site.author }}
-        &nbsp;&bull;&nbsp;
-      {% endif %}
-      {{ site.time | date: '%Y' }}
+      <div class="text-center">
+        {% if site.author %}
+          {{ site.author }}
+          &nbsp;&bull;&nbsp;
+        {% endif %}
+        {{ site.time | date: '%Y' }}
 
-      {% if site.url-pretty %}
-        &nbsp;&bull;&nbsp;
-        <span class="author-site">
-          <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '/' | absolute_url }}{% endif %}">{{ site.url-pretty }}</a>
-        </span>
-      {% endif %}
+        {% if site.url-pretty %}
+          &nbsp;&bull;&nbsp;
+          <span class="author-site"></span>
+        <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '/' | absolute_url }}{% endif %}">{{ site.url-pretty }}</a>
+          </span>
+        {% endif %}
 
-      {% if site.view_page_button and site.github.repository_url %}
-        &nbsp;&bull;&nbsp;
-        <a title="View source on GitHub" href="{{ site.github.repository_url }}/blob/main/{{ page.path }}" class="text_muted">View source on GitHub</a>
-       {% endif%}
+        {% if site.view_page_button and site.github.repository_url %}
+          &nbsp;&bull;&nbsp;
+          <a title="View source on GitHub" href="{{ site.github.repository_url }}/blob/main/{{ page.path }}" class="text_muted">View source on GitHub</a>
+        {% endif%}
+      </div>
       </div>
     </div>
   </div>
