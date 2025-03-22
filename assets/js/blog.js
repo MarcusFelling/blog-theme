@@ -4,7 +4,7 @@ let BlogJS = {
   numImgs : null,
 
   init : function() {
-    setTimeout(BlogJSllJS.initNavbar, 10);
+    setTimeout(BlogJS.initNavbar, 10);
 
     $(window).scroll(function() {
         if ($(".navbar").offset().top > 50) {
@@ -21,9 +21,9 @@ let BlogJS = {
       $(".navbar").removeClass("top-nav-expanded");
     });
 
-    BlogJSllJS.initImgs();
+    BlogJS.initImgs();
 
-    BlogJSllJS.initSearch();
+    BlogJS.initSearch();
   },
 
   initNavbar : function() {
@@ -42,16 +42,16 @@ let BlogJS = {
 
   initImgs : function() {
     if ($("#header-big-imgs").length > 0) {
-      BlogJSllJS.bigImgEl = $("#header-big-imgs");
-      blogJS.numImgs = blogJS.bigImgEl.attr("data-num-img");
+      BlogJS.bigImgEl = $("#header-big-imgs");
+      BlogJS.numImgs = BlogJS.bigImgEl.attr("data-num-img");
 
-      const imgInfo = blogJS.getImgInfo();
+      const imgInfo = BlogJS.getImgInfo();
       const src = imgInfo.src;
       const desc = imgInfo.desc;
-      blogJS.setImg(src, desc);
+      BlogJS.setImg(src, desc);
 
       const getNextImg = function() {
-        const imgInfo = blogJS.getImgInfo();
+        const imgInfo = BlogJS.getImgInfo();
         const src = imgInfo.src;
         const desc = imgInfo.desc;
 
@@ -64,23 +64,23 @@ let BlogJS = {
           setTimeout(function(){ img.css("opacity", "1"); }, 50);
 
           setTimeout(function() {
-            blogJS.setImg(src, desc);
+            BlogJS.setImg(src, desc);
             img.remove();
             getNextImg();
           }, 1000);
         }, 6000);
       };
 
-      if (blogJS.numImgs > 1) {
+      if (BlogJS.numImgs > 1) {
         getNextImg();
       }
     }
   },
 
   getImgInfo : function() {
-    const randNum = Math.floor((Math.random() * blogJS.numImgs) + 1);
-    const src = blogJS.bigImgEl.attr("data-img-src-" + randNum);
-    const desc = blogJS.bigImgEl.attr("data-img-desc-" + randNum);
+    const randNum = Math.floor((Math.random() * BlogJS.numImgs) + 1);
+    const src = BlogJS.bigImgEl.attr("data-img-src-" + randNum);
+    const desc = BlogJS.bigImgEl.attr("data-img-desc-" + randNum);
 
     return {
       src : src,
@@ -122,4 +122,4 @@ let BlogJS = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', blogJS.init);
+document.addEventListener('DOMContentLoaded', BlogJS.init);
