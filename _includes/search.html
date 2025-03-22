@@ -8,10 +8,37 @@
   
   <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
   <script>
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('nav-search-input'),
-      resultsContainer: document.getElementById('search-results-container'),
-      json: '{{ site.baseurl }}/assets/data/searchcorpus.json' 
+    document.addEventListener('DOMContentLoaded', function() {
+      var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('nav-search-input'),
+        resultsContainer: document.getElementById('search-results-container'),
+        json: '{{ site.baseurl }}/assets/data/searchcorpus.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a><p class="search-result-date">{date}</p></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false
+      });
+
+      // Debug check for search initialization
+      console.log('Search initialized with corpus path: {{ site.baseurl }}/assets/data/searchcorpus.json');
+      
+      // Make sure the nav search link works independently of blog.js
+      if (!window.searchInitialized) {
+        document.getElementById('nav-search-link').addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('blog-search-overlay').style.display = 'block';
+          document.getElementById('nav-search-input').focus();
+          document.body.classList.add('overflow-hidden');
+        });
+        
+        document.getElementById('nav-search-exit').addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('blog-search-overlay').style.display = 'none';
+          document.body.classList.remove('overflow-hidden');
+        });
+        
+        window.searchInitialized = true;
+      }
     });
   </script>
 </div>
