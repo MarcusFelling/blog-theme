@@ -12,13 +12,16 @@
       var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById('nav-search-input'),
         resultsContainer: document.getElementById('search-results-container'),
-        json: '{{ site.baseurl }}/assets/data/searchcorpus.json',
+        json: '/assets/data/searchcorpus.json', // Removed site.baseurl variable to use absolute path
         searchResultTemplate: '<li><a href="{url}">{title}</a><p class="search-result-date">{date}</p></li>',
         noResultsText: 'No results found',
         limit: 10,
         fuzzy: false
       });
 
+      // Debug info to help troubleshoot
+      console.log('Search trying to access corpus at: /assets/data/searchcorpus.json');
+      
       if (!window.searchInitialized) {
         document.getElementById('nav-search-link').addEventListener('click', function(e) {
           e.preventDefault();
